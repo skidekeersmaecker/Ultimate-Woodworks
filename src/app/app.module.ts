@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TafelComponent } from './tafel/tafel.component';
+import { MuurtafelComponent } from './muurtafel/muurtafel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TafelComponent,
+    MuurtafelComponent
   ],
   imports: [
     BrowserModule,
