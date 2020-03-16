@@ -1,4 +1,3 @@
-
 // test update price on checkbox values
 var total = 0;
 
@@ -16,5 +15,3 @@ function clickCB(add, cb) {
 
     document.getElementById("total").innerHTML = total;
 }
-
-// send email

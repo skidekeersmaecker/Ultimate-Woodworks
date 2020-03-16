@@ -1,0 +1,7 @@
+#details, #progress {
+    display: none;
+}
+
+#honeypot {
+    display: none; /*makes the field not visible to humans - prevention against spam*/
+}

@@ -4,6 +4,7 @@ function validEmail(email) { // see:
     return re.test(email);
   }
   function validateHuman(honeypot) {
+    console.log("honeypot: " + honeypot + " value: " + honeypot);
     if (honeypot) {  //if hidden form filled up
       console.log("Robot Detected!");
       return true;
@@ -17,7 +18,8 @@ function validEmail(email) { // see:
     var elements = form.elements; // all form elements
     var fields = Object.keys(elements).filter(function(k) {
           // the filtering logic is simple, only keep fields that are not the honeypot
-          return (elements[k].name !== "honeypot");
+          //return (elements[k].name !== "honeypot");
+          return (elements[k].name !== "keep-honeypot");
     }).map(function(k) {
       if(elements[k].name !== undefined) {
         return elements[k].name;
@@ -60,11 +62,11 @@ function validEmail(email) { // see:
   function handleFormSubmit(event) {  // handles form submit withtout any jquery
     event.preventDefault();           // we are submitting via xhr below
     var data = getFormData();         // get the values submitted in the form
-    /* OPTION: Remove this comment to enable SPAM prevention, see README.md
+    /* OPTION: Remove this comment to enable SPAM prevention, see README.md*/
     if (validateHuman(data.honeypot)) {  //if form is filled, form will not be submitted
       return false;
     }
-    */
+    
     if( !validEmail(data.email) ) {   // if email is not valid show error
       document.getElementById("email-invalid").style.display = "block";
       return false;

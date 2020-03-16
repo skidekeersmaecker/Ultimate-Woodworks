@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="main.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="form-submission-handler.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 
 <body>
@@ -42,11 +43,16 @@
         <label for="email">Email:</label>
         <input type="text" id="email" name="email"><br>
 
-        <label for="details">Details: </label>
-        <input id="details" name="details" value="details test" style="visibility: collapse;"><br><br> <!-- dit element als niet zichtbaar maken om zo de details als een parameter mee in de mail te sturen
+        <label for="details">Details: (tijdelijk => dit is normaal niet zichtbaar, maar enkel voor parameter door te sturen. Zie code voor uitleg:)</label>
+        <input id="details" name="details" value="details test"><br> <!-- dit element als niet zichtbaar maken om zo de details als een parameter mee in de mail te sturen + STYLE VERPLAATSEN NAAR CSS
         twee opties:
             1. details formateren en in deze niet zichtbare element steken om mee door te sturen
             2. details zoals overzicht hierboven formateren in een string en eveneens als overzicht tonen mee in de form (verdwijnt wel bij response) -->
+        <label for="progress">Progress: (tijdelijk => dit is normaal niet zichtbaar, maar enkel voor parameter door te sturen.)</label>
+        <input id="progress" name="progress" value="1. nieuwe aanvraag"><br>
+        
+        <label class="sr-only">Keep this field blank: deze moet ook weg, enkel voor beveiligen tegen spam</label>
+        <input id="honeypot" type="text" name="honeypot" value="" /><br><br>
 
         <input type="submit" value="Submit">
     </form>
