@@ -1,9 +1,8 @@
-function SelectSection(sectie) {
-    console.log("show section: " + sectie);
+function SelectSection(section) {
     var node = document.getElementById("sections");
     console.log(node);
 
-    switch (sectie) {
+    switch (section) {
         case "tafel":
             node.innerHTML = ShowSectionTafel();
             break;
@@ -12,11 +11,3 @@ function SelectSection(sectie) {
             break;
     };
 };
-
-/*function ShowSectionTafel(node){
-    return "<h1>TAFEL</h1"
-}
-
-function ShowSectionStoel(node){
-    return "<h1>STOEL</h1>"
-}*/
