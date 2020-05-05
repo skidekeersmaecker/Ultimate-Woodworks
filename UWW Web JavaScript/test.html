@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Industial Furniture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="main.js"></script>
+    <script src="form-submission-handler.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="Secties/sectie-router.js"></script>
+    <script src="Secties/tafel.js"></script>
+    <script src="Secties/stoel.js"></script>
+</head>
+
+<body>
+
+    <!-- test update price on checkbox values -->
+    <input type="checkbox" name="cb1" value=10 onclick="clickCB(10, this)">
+    <label for="cb1">10</label><br>
+    <input type="checkbox" name="cb2" value=20 onclick="clickCB(20, this)">
+    <label for="cb2">20</label><br>
+    <input type="checkbox" name="cb3" value=30 onclick="clickCB(30, this)">
+    <label for="cb3">30</label><br>
+
+    <label id="total">0</label>
+
+    <!-- send email -->
+    <h2 class="content-head is-center">Order your piece of furniture</h2>
+    <aside>
+        <p>Details:</p>
+        <ul>
+            <li>table</li>
+            <li>150x200x30</li>
+            <li>Oak top</li>
+            <li>coated with i dont know</li>
+        </ul>
+    </aside>
+
+    <form id="gform" method="POST" data-email="example@email.net"
+        action="https://script.google.com/macros/s/AKfycby8tnu-0RmDhCLbcAj0b6SWWmLLgAU7klvY_pcNpg/exec">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message"><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br>
+
+        <label for="details">Details: (tijdelijk => dit is normaal niet zichtbaar, maar enkel voor parameter door te
+            sturen. Zie code voor uitleg:)</label>
+        <input id="details" name="details" value="details test"><br>
+        <!-- dit element als niet zichtbaar maken om zo de details als een parameter mee in de mail te sturen + STYLE VERPLAATSEN NAAR CSS
+        twee opties:
+            1. details formateren en in deze niet zichtbare element steken om mee door te sturen
+            2. details zoals overzicht hierboven formateren in een string en eveneens als overzicht tonen mee in de form (verdwijnt wel bij response) -->
+        <label for="progress">Progress: (tijdelijk => dit is normaal niet zichtbaar, maar enkel voor parameter door te
+            sturen.)</label>
+        <input id="progress" name="progress" value="1. nieuwe aanvraag"><br>
+
+        <label for="honeypot">Keep this field blank: deze moet ook weg, enkel voor beveiligen tegen spam</label>
+        <input id="honeypot" type="text" name="honeypot" value="" /><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div style="display:none;" id="thankyou_message">
+        <h2><em>Thanks</em> for ordering!
+            We will get back to you soon!</h2>
+    </div><br><br>
+
+
+    <!-- work with sections -->
+    <div>
+        <a onclick="SelectSection('tafel')">tafel</a>
+        <a onclick="SelectSection('stoel')">stoel</a><br><br>
+        <div id="sections"></div>
+    </div>
+
+
+    <!-- Submit the Form to Google Using "AJAX" -> always as last line before end body tag -->
+    <script data-cfasync="false" type="text/javascript"
+        src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+    <script data-cfasync="false" type="text/javascript" src="/form-submission-handler.js"></script>
+</body>
+
+</html>

@@ -5,3 +5,38 @@
 #honeypot {
     display: none; /*makes the field not visible to humans - prevention against spam*/
 }
+
+div{
+    border: 1px solid black;
+}
+
+#header{
+    height: 100px;
+}
+
+#navbar{
+    display: flex;
+    height: 50px;
+}
+
+#main{
+    display: flex;
+}
+
+.navsection{
+    width: 150px;
+}
+
+#currentsection{
+    width: 73%;
+}
+
+#order{
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+    background-color: yellow;
+    padding: 50px;
+    font-size: 20px;
+    width: 23%;
+}
